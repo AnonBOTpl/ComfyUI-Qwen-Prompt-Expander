@@ -11,6 +11,7 @@ Turn short concepts (e.g., "woman in red dress") into professional, detailed Sta
 ![GPU: 6GB+](https://img.shields.io/badge/GPU-6GB%2B-orange.svg)
 
 ---
+![ComfyUI Workflow Example](screenshot.png)
 
 ## ✨ Key Features
 
