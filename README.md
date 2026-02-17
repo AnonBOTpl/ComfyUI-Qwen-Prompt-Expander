@@ -38,7 +38,7 @@ Turn short concepts (e.g., "woman in red dress") into professional, detailed Sta
 1. Navigate to your ComfyUI `custom_nodes` directory
 2. Clone this repository:
 ```bash
-   git clone https://github.com/YOUR_USERNAME/ComfyUI-Qwen-Prompt-Expander.git
+   git clone https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander.git
 ```
 3. Install dependencies:
 
@@ -287,7 +287,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ### Development Setup
 ```bash
-git clone https://github.com/YOUR_USERNAME/ComfyUI-Qwen-Prompt-Expander.git
+git clone https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander.git
 cd ComfyUI-Qwen-Prompt-Expander
 pip install -r requirements.txt
 ```
@@ -327,8 +327,8 @@ The best submissions will be featured in this README!
 
 ## 💬 Support
 
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/ComfyUI-Qwen-Prompt-Expander/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/YOUR_USERNAME/ComfyUI-Qwen-Prompt-Expander/discussions)
+- **Issues:** [GitHub Issues](https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander/discussions)
 
 ---
 
