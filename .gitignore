@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.Python
+*.so
+models/LLM/
+*.bin
+*.safetensors
+.DS_Store
+Thumbs.db
+*.log

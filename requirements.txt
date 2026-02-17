@@ -1,0 +1,9 @@
+# Translation support (MarianMT)
+sentencepiece
+sacremoses
+
+# Model optimization
+accelerate
+
+# Quantization support (4-bit/8-bit)
+bitsandbytes>=0.43.1
