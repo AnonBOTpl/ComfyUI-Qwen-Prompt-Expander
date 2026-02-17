@@ -29,6 +29,7 @@ class QwenOfflinePrompt:
         # CACHE DLA TRANSLATORA
         self.trans_model = None
         self.trans_tokenizer = None
+        self.trans_device = None
         self.translation_cache = {}
         self.max_cache_size = 100
         
@@ -109,8 +110,12 @@ class QwenOfflinePrompt:
             if translator_device == "GPU (Faster)" and torch.cuda.is_available():
                 trans_device = "cuda"
             
-            # Ładowanie tylko jeśli nie ma w cache
-            if self.trans_model is None:
+            # Ładowanie lub przenoszenie modelu
+            needs_load = self.trans_model is None
+            needs_move = (self.trans_model is not None and 
+                         str(next(self.trans_model.parameters()).device) != trans_device)
+            
+            if needs_load:
                 print(f"🌍 [Translator] Loading to {trans_device.upper()}...")
                 self.trans_tokenizer = MarianTokenizer.from_pretrained(
                     "Helsinki-NLP/opus-mt-pl-en", 
@@ -120,11 +125,11 @@ class QwenOfflinePrompt:
                     "Helsinki-NLP/opus-mt-pl-en", 
                     cache_dir=self.model_dir
                 ).to(trans_device)
-            
-            # Jeśli zmienił się device, przenieś model
-            if str(next(self.trans_model.parameters()).device) != trans_device:
+                self.trans_device = trans_device
+            elif needs_move:
                 print(f"🔄 [Translator] Moving to {trans_device.upper()}...")
                 self.trans_model = self.trans_model.to(trans_device)
+                self.trans_device = trans_device
             
             # Tłumaczenie
             inputs = self.trans_tokenizer(text, return_tensors="pt", padding=True).to(trans_device)
@@ -157,13 +162,14 @@ class QwenOfflinePrompt:
         if use_translator_PL_EN:
             final_subject = self.translate(subject, translator_device)
 
-        # 2. VRAM Management
+        # 2. VRAM Management - POPRAWKA: tylko gdy zmiana modelu, nie przy pierwszym load
         model_changed = (self.llm_model is None) or \
                         (self.current_model_name != actual_model_id) or \
                         (self.current_precision != precision)
 
-        if target_device == "cuda" and model_changed:
-            print("🧹 [LLM] Clearing VRAM for new model...")
+        # Only clear VRAM when switching models (not on first load)
+        if target_device == "cuda" and model_changed and self.llm_model is not None:
+            print("🧹 [LLM] Clearing VRAM for model change...")
             comfy.model_management.unload_all_models()
             comfy.model_management.soft_empty_cache()
             gc.collect()
@@ -240,6 +246,9 @@ class QwenOfflinePrompt:
             except Exception as e:
                 print(f"❌ [LLM] Load Error: {e}")
                 return (final_subject, negative_prompt_text if add_negative else "")
+        else:
+            # Model w cache - instant generation!
+            print("⚡ [LLM] Using cached model (instant generation)")
 
         # 4. Prompt Construction
         random.seed(seed)
@@ -415,6 +424,7 @@ Output:"""
                 del self.trans_tokenizer
                 self.trans_model = None
                 self.trans_tokenizer = None
+                self.trans_device = None
             
             gc.collect()
             if target_device == "cuda":
