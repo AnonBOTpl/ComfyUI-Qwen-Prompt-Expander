@@ -414,7 +414,7 @@ Seeds provide *approximate* reproducibility:
 
 ## 📊 Changelog
 
-### [1.1.0] - 2024-02-17
+### [1.1.0] - 2026-02-23
 
 #### Added
 - **Custom Model Support**: Use any HuggingFace model or local models
@@ -434,7 +434,7 @@ Seeds provide *approximate* reproducibility:
 - **Console Logs**: Added cache status indicator `⚡ Using cached model`
 - **Translator Device Tracking**: Prevents unnecessary model moves between CPU/GPU
 
-### [1.0.0] - 2024-02-16
+### [1.0.0] - 2026-02-16
 - Initial release
 - Core prompt expansion functionality
 - Polish-English translation
