@@ -29,7 +29,7 @@ Documentation = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander/wiki"
 "Bug Tracker" = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander/issues"
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "anonbotpl"
 DisplayName = "ComfyUI-Qwen-Prompt-Expander"
 Icon = ""
 includes = [] 
