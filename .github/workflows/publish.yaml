@@ -23,4 +23,5 @@ jobs:
       - name: Publish to registry
         env:
           REGISTRY_ACCESS_TOKEN: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
-        run: comfy node publish
+          COMFY_ALLOW_TRACKING: "false"
+        run: comfy node publish --no-interaction
