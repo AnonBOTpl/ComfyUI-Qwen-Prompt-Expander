@@ -1,8 +1,9 @@
 [project]
-name = "qwen-prompt-expander"
-description = "Local AI prompt generator using Qwen/SmolLM2 models. 100% offline and private. Supports 4-bit/8-bit quantization. Runs on 6GB VRAM GPUs alongside Stable Diffusion. Smart token management, Polish-English translation, embedding support, OOM protection."
-version = "1.0.1"
+name = "comfyui-qwen-prompt-expander"
+version = "1.1.0"
+description = "Local AI prompt generator using Qwen/SmolLM2 models. 100% offline and private."
 license = { file = "LICENSE" }
+requires-python = ">=3.8"
 
 dependencies = [
     "sentencepiece",
@@ -13,11 +14,10 @@ dependencies = [
 
 [project.urls]
 Repository = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander"
-Documentation = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander/wiki"
+Documentation = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander"
 "Bug Tracker" = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander/issues"
 
 [tool.comfy]
-publisher = "anonbotpl"
-display_name = "ComfyUI-Qwen-Prompt-Expander"
-icon = ""
-includes = []
+PublisherId = "anonbotpl"
+DisplayName = "Qwen Prompt Expander"
+Icon = ""
