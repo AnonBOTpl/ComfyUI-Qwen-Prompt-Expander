@@ -26,18 +26,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install "requests>=2.31.0,<3.0.0" "urllib3<2.0,>=1.26.0" "charset_normalizer<3.0,>=2.1.1"
 
-      # 4. Clone ComfyUI repo do folderu ./ComfyUI
-      - name: Clone ComfyUI
-        run: git clone https://github.com/comfyanonymous/ComfyUI.git ComfyUI
-
-      # 5. Install Comfy CLI
+      # 4. Install Comfy CLI
       - name: Install Comfy CLI
         env:
           COMFYUI_DISABLE_TRACKING: "1"
           CI: "true"
         run: pip install comfy-cli
 
-      # 6. Publish do Comfy Registry z poprawnym workspace
+      # 5. Publish do Comfy Registry z poprawnym workspace
       - name: Publish to registry
         env:
           REGISTRY_ACCESS_TOKEN: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
