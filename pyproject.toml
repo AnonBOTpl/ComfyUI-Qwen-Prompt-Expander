@@ -5,10 +5,11 @@ version = "1.1.0"
 license = { text = "MIT" }
 
 authors = [
-    { name = "AnonBOTpl", email = "" }  # Opcjonalnie email
+    { name = "AnonBOTpl" }
 ]
 
 requires-python = ">=3.8"
+
 dependencies = [
     "sentencepiece",
     "sacremoses",
@@ -21,11 +22,6 @@ Repository = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander"
 Homepage = "https://github.com/AnonBOTpl/ComfyUI-Qwen-Prompt-Expander"
 
 [tool.comfy]
-PublisherId = "anonbotpl"  # ← ZAMIEŃ na swój Publisher ID z registry!
+PublisherId = "anonbotpl"
 DisplayName = "Qwen Prompt Expander"
-Icon = ""  # Opcjonalnie: URL do ikony
-
-# Opcjonalnie: testy
-# [tool.comfy.tests]
-# python = "3.10"
-# comfy-version = "latest"
+Icon = ""
